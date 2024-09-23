@@ -20,4 +20,23 @@ $(document).ready(function () {
         speed: "0.30",
         autostart: true,
       });
+      //siri message animation
+    $('.siri-message').textillate({
+        loop: true,
+        sync: true,
+        in: {
+            effect: 'fadeIn',
+            sync: true,
+        },
+        out: {
+            effect: 'fadeOutUp',
+            sync: true,
+        }
+    });
+    //MIC BUTTON ACTION
+    $("#MicBtn").click(function () { 
+        eel.playAssistantSound()
+        $("#Oval").attr("hidden", true);
+        $("#SiriWave").attr("hidden", false);
+    });
 });
