@@ -9,10 +9,6 @@ def speak(text):
     engine.setProperty('rate', 174)
     engine.say(text)
     engine.runAndWait()
-
-@eel.expose
-
-
 def takecommand():
 
     r = sr.Recognizer()
@@ -30,10 +26,17 @@ def takecommand():
         query = r.recognize_google(audio, language='en-in')
         print(f"user said: {query}")
         eel.DisplayMessage(query)
-        speak(query)
         eel.ShowHood()
     except Exception as e:
         return print("Command Not Regonized")
     
     return query.lower()
-
+@eel.expose
+def allCommands():
+    query = takecommand()
+    print(query)
+    if "open" in query:
+        from engine.features import openCommand
+        openCommand(query)
+    else:
+        print("I Not RUN")

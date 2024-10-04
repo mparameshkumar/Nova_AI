@@ -33,11 +33,11 @@ $(document).ready(function () {
             sync: true,
         }
     });
-    //MIC BUTTON ACTION
+    //MIC BUTTON ACTIONs
     $("#MicBtn").click(function () { 
         eel.playAssistantSound()
         $("#Oval").attr("hidden", true);
         $("#SiriWave").attr("hidden", false);
-        eel.takecommand()()
+        eel.allCommands()()
     });
 });
